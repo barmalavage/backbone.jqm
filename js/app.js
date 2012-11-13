@@ -5,10 +5,9 @@ define('app',
 
 		return {
 			init: function() {
-				console.log("app init.");
-				var Main = new MainRouter();
-				Backbone.history.start({pushState: false, silent: false});
 				
+				var Main = new MainRouter();
+				Backbone.history.start({pushState: false, silent: false});				
 			}
 		};
 

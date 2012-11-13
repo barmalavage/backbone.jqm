@@ -11,10 +11,10 @@ require.config({
     },
     shim: {
         'jquery.mobile'         : {
-            deps: ['jquery']
+            deps: ['jquery', 'jquery.mobile-config']
         },
         'jquery.mobile-config'  : {
-            deps: ['jquery.mobile', 'jquery']
+            deps: ['jquery']
         },
         'backbone'              : {
             deps: ['jquery', 'underscore'],
@@ -30,7 +30,7 @@ require.config({
             deps: ['backbone']
         },
         'app'                   : {
-            deps: ['router/main']
+            deps: ['router/main', 'views/base']
         }
     }
 });

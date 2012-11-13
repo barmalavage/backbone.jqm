@@ -1,21 +1,45 @@
 define('router/main',
-	['underscore', 'backbone'],
-	function(_, Backbone) {
+	['jquery', 'underscore', 'backbone',
+	'views/base'],
+	function($, _, Backbone, BaseView) {
 
 		return Backbone.Router.extend({
 			
 			routes: {
 				""		: "home",
-				"home"	: "home"
+				"home"	: "home",
+				"sub"	: "sub",
+				"third"	: "dynamic"
 			},
 
 			initialize: function() {
-				console.log("router init.");				
+				
 			},
 
 			home: function() {
-				console.log("navigated home.");
+				
+				
+
+				$.mobile.changePage("#home", { reverse: false, changeHash: false } );
+
+				return false;
+			},
+
+			sub: function() {
+				
+				$.mobile.changePage("#sub", { reverse: false, changeHash: false } );
+
+				return false;
+			},
+
+			dynamic: function() {
+
+				var view = new BaseView();
+				view.render();
+
+				$.mobile.changePage("#default", { reverse: false, changeHash: false} );
 			}
+
 		});
 
 	}
