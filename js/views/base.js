@@ -10,7 +10,7 @@ define('views/base',
 			getTemplateContext: function() {
 
 				return {
-					
+
 				};
 			},
 
@@ -28,8 +28,10 @@ define('views/base',
 					ctx = this.getTemplateContext(),
 					rendered = templ(ctx);
 
-				this.setElement(rendered);
-				this.delegateEvents();				
+				this.$el.html(rendered);							
+
+				// Remember: this just renders the template with handlebars.
+				// You need to *do something* with this.$el in your child classes
 
 				return this;
 			}

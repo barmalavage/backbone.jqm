@@ -24,17 +24,21 @@
         <script data-main="js/main" src="js/lib/require.js"></script>
     </body>
     <script id="template-page" type="text/x-handlebars-template">
-        <div id="{{pageId}}" data-role="page">
-            <div data-role="header">
-                <h1>{{header}}</h1>
-            </div>
-
-            <div data-role="content">   
-                {{body}}
-            </div>
+        
+        <div data-role="header">
+            <h1>{{header}}</h1>
         </div>
+
+        <div data-role="content">   
+            {{body}}
+        </div>
+        
     </script>
     <script id="form-search" type="text/x-handlebars-template">
+        <div class="form-item">
+            <label for="basic">Text Input:</label>
+            <input type="text" name="name" id="basic" value=""  />
+        </div>
         <div class="ui-grid-b">
             <div class="ui-block-a">
                 <a href="#" data-role="button" data-inline="true">Reset</a>        

@@ -15,6 +15,14 @@ define('views/abstract-page',
 
 			body: "This is just some body text",
 
+			tagName: "div",
+
+			id: "home",
+
+			attributes: {
+				"data-role": "page"
+			},
+
 			getTemplateContext: function() {
 
 				return {

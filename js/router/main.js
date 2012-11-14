@@ -44,12 +44,12 @@ define('router/main',
 
 			/* "internal" methods */
 
-			renderPage: function(pageId) {
+			renderPage: function(id) {
 
-				var view = new AbstractPageView( { header: "Home Page", pageId: pageId } );
+				var view = new AbstractPageView( { header: "Home Page", id: id } );
 				view.render();
 
-				$.mobile.changePage("#" + pageId, { reverse: false, changeHash: false } );
+				$.mobile.changePage("#" + id, { reverse: false, changeHash: false } );
 			}
 
 		});
