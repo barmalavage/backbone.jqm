@@ -20,42 +20,29 @@
         <!--[if lt IE 9]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-
-
-        <div data-role="page" id="home">
-
-            <div data-role="header">
-                <h1>My Title</h1>
-            </div><!-- /header -->
-
-            <div data-role="content">   
-                <p><a href="#sub">Hello world</a></p>      
-            </div><!-- /content -->
-
-        </div><!-- /page -->
-                
-        <div data-role="page" id="sub">
-
-            <div data-role="header">
-                <h1>SECOND PAGE.</h1>
-            </div><!-- /header -->
-
-            <div data-role="content">   
-                <p><a href="#home">Goodbye, world</a></p>      
-            </div><!-- /content -->
-
-        </div><!-- /page -->
+        
         <script data-main="js/main" src="js/lib/require.js"></script>
     </body>
     <script id="template-page" type="text/x-handlebars-template">
         <div id="{{pageId}}" data-role="page">
             <div data-role="header">
-                <h1>THIRD PAGE.</h1>
-            </div><!-- /header -->
+                <h1>{{header}}</h1>
+            </div>
 
             <div data-role="content">   
-                <p><a href="#home">Sweet, sweet world</a></p>      
-            </div><!-- /content -->
+                {{body}}
+            </div>
         </div>
+    </script>
+    <script id="form-search" type="text/x-handlebars-template">
+        <div class="ui-grid-b">
+            <div class="ui-block-a">
+                <a href="#" data-role="button" data-inline="true">Reset</a>        
+            </div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c">
+                <a href="#" data-role="button" data-inline="true" data-theme="b">Submit</a>
+            </div>
+        </div>        
     </script>
 </html>

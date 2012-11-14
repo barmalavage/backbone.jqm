@@ -1,7 +1,7 @@
 define('router/main',
 	['jquery', 'underscore', 'backbone',
-	'views/base'],
-	function($, _, Backbone, BaseView) {
+	'views/abstract-page'],
+	function($, _, Backbone, AbstractPageView) {
 
 		return Backbone.Router.extend({
 			
@@ -14,19 +14,21 @@ define('router/main',
 
 			initialize: function() {
 				
+
 			},
 
-			home: function() {
-				
-				
+			home: function() {							
 
-				$.mobile.changePage("#home", { reverse: false, changeHash: false } );
+				this.renderPage("home");				
 
 				return false;
 			},
 
 			sub: function() {
 				
+				var view = new AbstractPageView();
+				view.render();
+
 				$.mobile.changePage("#sub", { reverse: false, changeHash: false } );
 
 				return false;
@@ -34,10 +36,20 @@ define('router/main',
 
 			dynamic: function() {
 
-				var view = new BaseView();
+				var view = new AbstractPageView();
 				view.render();
 
 				$.mobile.changePage("#default", { reverse: false, changeHash: false} );
+			},
+
+			/* "internal" methods */
+
+			renderPage: function(pageId) {
+
+				var view = new AbstractPageView( { header: "Home Page", pageId: pageId } );
+				view.render();
+
+				$.mobile.changePage("#" + pageId, { reverse: false, changeHash: false } );
 			}
 
 		});

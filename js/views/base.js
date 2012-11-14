@@ -4,25 +4,32 @@ define('views/base',
 
 		return Backbone.View.extend({
 			
-			templateId: "#template-page",
+			templateId: null,
 
-			pageId: "default",
+			// Override this. 
+			getTemplateContext: function() {
 
-			container: "body",
+				return {
+					
+				};
+			},
+
+			initialize: function(args) {
+
+				if (_.isObject(args)) {
+					_.extend(this, args);
+				}
+			},
 
 			render: function() {
 
 				var src = $(this.templateId).html(),
 					templ = Handlebars.compile(src),
-					ctx = {
-						pageId: this.pageId
-					},
+					ctx = this.getTemplateContext(),
 					rendered = templ(ctx);
 
 				this.setElement(rendered);
-				this.delegateEvents();
-
-				$(this.container).append(this.$el);
+				this.delegateEvents();				
 
 				return this;
 			}

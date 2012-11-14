@@ -29,8 +29,11 @@ require.config({
         'router/main'           : {
             deps: ['backbone']
         },
+        'views/abstract-page'    : {
+            deps: ['views/base']
+        },
         'app'                   : {
-            deps: ['router/main', 'views/base']
+            deps: ['router/main', 'views/abstract-page']
         }
     }
 });
