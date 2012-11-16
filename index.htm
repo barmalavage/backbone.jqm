@@ -29,23 +29,36 @@
             <h1>{{header}}</h1>
         </div>
 
-        <div data-role="content">   
-            {{body}}
+        <div data-role="content">
+            <section class="page-text">
+                {{body}}
+            </section>
+            <section class="page-content">
+
+            </section>
         </div>
         
     </script>
     <script id="form-search" type="text/x-handlebars-template">
         <div class="form-item">
-            <label for="basic">Text Input:</label>
-            <input type="text" name="name" id="basic" value=""  />
+            <label for="search-zip">Zip Code:</label>
+            <input type="text" name="search-zip" id="search-zip" value="{{form_zip}}"  />
+        </div>
+        <div class="form-item">
+            <label for="search-radius">Search Radius:</label>            
+            <input type="range" name="search-radius" id="search-radius" data-highlight="true" value="{{form_radius}}" step=".25" min="0" max="5" />
+        </div>
+        <div class="form-item">
+            <label for="search-product">Looking For:</label>
+            <input type="text" name="search-product" id="search-product" value="{{form_product}}"  />
         </div>
         <div class="ui-grid-b">
             <div class="ui-block-a">
-                <a href="#" data-role="button" data-inline="true">Reset</a>        
+                <a href="#" class="form-reset" data-role="button" data-inline="true">Reset</a>        
             </div>
             <div class="ui-block-b"></div>
             <div class="ui-block-c">
-                <a href="#" data-role="button" data-inline="true" data-theme="b">Submit</a>
+                <a href="#" class="form-submit" data-role="button" data-inline="true" data-theme="b">Submit</a>
             </div>
         </div>        
     </script>

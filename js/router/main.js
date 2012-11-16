@@ -1,7 +1,7 @@
 define('router/main',
 	['jquery', 'underscore', 'backbone',
-	'views/abstract-page'],
-	function($, _, Backbone, AbstractPageView) {
+	'views/page-base', 'views/partial-form-search'],
+	function($, _, Backbone, BasePage, SearchFormPartial) {
 
 		return Backbone.Router.extend({
 			
@@ -17,16 +17,23 @@ define('router/main',
 
 			},
 
-			home: function() {							
+			home: function() {
 
-				this.renderPage("home");				
+				var pageId = "home",
+					view = new BasePage( { header: "Home Page", id: pageId } );
+				
+				view.views.searchForm = new SearchFormPartial();				
+				
+				view.render();
+
+				this.changePage(pageId);
 
 				return false;
 			},
 
 			sub: function() {
 				
-				var view = new AbstractPageView();
+				var view = new BasePage();
 				view.render();
 
 				$.mobile.changePage("#sub", { reverse: false, changeHash: false } );
@@ -36,7 +43,7 @@ define('router/main',
 
 			dynamic: function() {
 
-				var view = new AbstractPageView();
+				var view = new BasePage();
 				view.render();
 
 				$.mobile.changePage("#default", { reverse: false, changeHash: false} );
@@ -44,10 +51,7 @@ define('router/main',
 
 			/* "internal" methods */
 
-			renderPage: function(id) {
-
-				var view = new AbstractPageView( { header: "Home Page", id: id } );
-				view.render();
+			changePage: function(id) {				
 
 				$.mobile.changePage("#" + id, { reverse: false, changeHash: false } );
 			}
